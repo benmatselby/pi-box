@@ -1,2 +1,3 @@
 provision_apt_packages:
   - "vim"
+  - "tmux"
