@@ -53,3 +53,11 @@ lint: ## Lint the code
 shellcheck: ## Run shellcheck
 	@echo "Running shellcheck"
 	@shellcheck scripts/hooks/*
+
+
+###
+# Utilities
+###
+.PHONY: facts
+facts: ## Display the facts
+	@ansible -m setup localhost

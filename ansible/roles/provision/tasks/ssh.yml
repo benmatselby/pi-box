@@ -1,0 +1,6 @@
+---
+- name: Generate ssh key
+  ansible.builtin.command: ssh-keygen -t rsa -N "" -f "{{ provision_ssh_key_path }}"
+  args:
+    creates: "{{ provision_ssh_key_path }}"
+  become: false
