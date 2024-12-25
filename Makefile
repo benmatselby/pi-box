@@ -48,3 +48,8 @@ provision: ## Install the packages
 lint: ## Lint the code
 	@echo "Linting the code"
 	@ansible-lint ansible/
+
+.PHONY: shellcheck
+shellcheck: ## Run shellcheck
+	@echo "Running shellcheck"
+	@shellcheck scripts/hooks/*
