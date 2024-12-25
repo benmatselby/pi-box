@@ -26,8 +26,25 @@ explain:
 	@cat Makefile* | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 ###
+# Installation (GitHooks)
+###
+.PHONY: install
+install: ## Install the git hooks
+	@echo "Installing the git hooks"
+	@cp -rf scripts/hooks/* .git/hooks/
+
+###
 # Ansible targets
 ###
 .PHONY: provision
 provision: ## Install the packages
 	ansible-playbook -i ansible/hosts ansible/provision.yml --verbose
+
+
+###
+# Quality checks
+###
+.PHONY: lint
+lint: ## Lint the code
+	@echo "Linting the code"
+	@ansible-lint ansible/
