@@ -1,5 +1,12 @@
 ---
+- name: Update the repository cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+
 - name: Install apt packages
-  ansible.builtin.command: "apt-get install -y {{ item }}"
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
   loop: "{{ provision_apt_packages }}"
-  changed_when: true
+  become: true
