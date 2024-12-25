@@ -3,10 +3,6 @@
 # Git pre-commit hook
 #
 
-# Colours https://misc.flogisoft.com/bash/tip_colors_and_formatting
-reset=$'\e[0m'
-red=$'\e[1;31m'
-
 
 ##
 # The Makefile target runner
@@ -32,6 +28,7 @@ function runTarget {
 ##
 TARGETS=(
   lint
+  shellcheck
 )
 
 for target in "${TARGETS[@]}"; do runTarget "${target}"; done

@@ -1,10 +1,10 @@
-name: ansible-lint
+name: checks
 
 on: [push]
 
 jobs:
   build:
-    name: Ansible Lint
+    name: Quality checks
     runs-on: ubuntu-latest
 
     steps:
@@ -16,3 +16,6 @@ jobs:
         uses: ansible/ansible-lint@v24.12.2
         with:
           args: "ansible/roles/"
+
+      - name: Shellcheck
+        run: make shellcheck
