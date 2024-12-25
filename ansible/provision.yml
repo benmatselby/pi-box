@@ -1,0 +1,2 @@
+- name: A playbook to provision raspberry pis
+  hosts: all

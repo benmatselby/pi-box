@@ -1,0 +1,5 @@
+---
+- name: Install apt packages
+  ansible.builtin.command: "apt-get install -y {{ item }}"
+  loop: "{{ provision_apt_packages }}"
+  changed_when: true
