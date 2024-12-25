@@ -1,0 +1,21 @@
+name: checks
+
+on: [push]
+
+jobs:
+  build:
+    name: Quality checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # needed for progressive mode to work
+
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@v24.12.2
+        with:
+          args: "ansible/roles/"
+
+      - name: Shellcheck
+        run: make shellcheck
