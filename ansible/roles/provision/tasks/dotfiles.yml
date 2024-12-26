@@ -1,0 +1,7 @@
+---
+- name: Install the tmux configuration
+  ansible.builtin.command: tmux/install.sh
+  args:
+    chdir: "{{ provision_code_path }}/{{ provision_github_org }}/dotfiles"
+    creates: "/home/{{ provision_user }}/.tmux.conf"
+  become: false
