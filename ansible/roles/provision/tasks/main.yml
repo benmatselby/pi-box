@@ -4,3 +4,6 @@
 
 - name: Import ssh tasks
   ansible.builtin.import_tasks: ssh.yml
+
+- name: Import git tasks
+  ansible.builtin.import_tasks: git.yml

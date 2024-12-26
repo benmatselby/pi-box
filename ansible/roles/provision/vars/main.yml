@@ -8,3 +8,13 @@ provision_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
 
 # Where the SSH key will be generated (Means we can have a silent generation)
 provision_ssh_key_path: "/home/{{ provision_user }}/.ssh/id_rsa"
+
+# My personal GitHub org
+provision_github_org: "benmatselby"
+
+# Repos to clone onto the pi
+provision_git_repos:
+  - "{{ provision_github_org }}/dotfiles"
+
+# The path where the code will be cloned to
+provision_code_path: "/home/{{ provision_user }}/git/github/"
