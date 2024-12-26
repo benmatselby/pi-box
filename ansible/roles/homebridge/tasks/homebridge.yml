@@ -1,0 +1,26 @@
+---
+# Installation instructions here:
+# https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-Raspbian#installing-homebridge
+
+- name: Add an homebridge signing key
+  ansible.builtin.apt_key:
+    url: https://repo.homebridge.io/KEY.gpg
+    keyring: /etc/apt/trusted.gpg.d/homebridge.gpg
+  become: true
+
+- name: Add source repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/etc/apt/trusted.gpg.d/homebridge.gpg] https://repo.homebridge.io stable main
+    state: present
+  become: true
+
+- name: Update the repository cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+
+- name: Install homebridge
+  ansible.builtin.apt:
+    name: "homebridge"
+    state: present
+  become: true

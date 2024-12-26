@@ -38,7 +38,7 @@ install: ## Install the git hooks
 ###
 .PHONY: provision
 provision: ## Install the packages
-	ansible-playbook -i ansible/hosts ansible/provision.yml --verbose
+	ansible-playbook -i ansible/hosts ansible/provision.yml ansible/homebridge.yml --verbose
 
 
 ###

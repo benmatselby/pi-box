@@ -1,0 +1,4 @@
+- name: A playbook to provision home bridge on a raspberry pi
+  hosts: hub
+  roles:
+    - role: homebridge
