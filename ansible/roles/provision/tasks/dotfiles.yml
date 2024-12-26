@@ -5,3 +5,10 @@
     chdir: "{{ provision_code_path }}/{{ provision_github_org }}/dotfiles"
     creates: "/home/{{ provision_user }}/.tmux.conf"
   become: false
+
+- name: Install the bash aliases
+  ansible.builtin.command: bash/install.sh
+  args:
+    chdir: "{{ provision_code_path }}/{{ provision_github_org }}/dotfiles"
+    creates: "/home/{{ provision_user }}/.bash_aliases"
+  become: false
