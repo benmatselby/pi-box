@@ -1,0 +1,5 @@
+---
+# Configuration https://ansible.readthedocs.io/projects/lint/configuring/#specifying-configuration-files
+
+warn_list:
+- latest[git]

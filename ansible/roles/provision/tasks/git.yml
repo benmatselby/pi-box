@@ -1,0 +1,14 @@
+---
+- name: Create folder structure
+  ansible.builtin.file:
+    path: "{{ provision_code_path }}"
+    state: directory
+    mode: "0755"
+
+- name: Clone git repos with ssh
+  ansible.builtin.git:
+    repo: git@github.com:{{ item }}.git
+    dest: "{{ provision_code_path }}/{{ item }}"
+    force: false
+    update: false
+  with_items: "{{ provision_git_repos }}"
