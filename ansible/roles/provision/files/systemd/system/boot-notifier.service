@@ -1,0 +1,16 @@
+[Unit]
+Description=Email notification that system has booted
+After=network.target
+
+[Service]
+Type=simple
+# todo
+# Needs to be defined manually for now!
+EnvironmentFile=/home/ben/.config/benmatselby/boot-notifier.env
+ExecStart=/bin/bash -c 'echo `hostname` "has booted" | mutt -s "`hostname` has booted" ${PRIMARY_EMAIL}'
+User=ben
+WorkingDirectory=/home/ben
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -10,3 +10,6 @@
 
 - name: Import dotfiles tasks
   ansible.builtin.import_tasks: dotfiles.yml
+
+- name: Import boot-notifier tasks
+  ansible.builtin.import_tasks: boot-notifier.yml
