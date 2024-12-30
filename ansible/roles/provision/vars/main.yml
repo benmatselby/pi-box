@@ -1,7 +1,8 @@
 # The packages we want to install using apt
 provision_apt_packages:
-  - "vim"
+  - "mutt"
   - "tmux"
+  - "vim"
 
 # The user created on the PI, which is linked to user on host
 provision_user: "{{ lookup('ansible.builtin.env', 'USER') }}"

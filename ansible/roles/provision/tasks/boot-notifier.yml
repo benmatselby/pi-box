@@ -1,0 +1,18 @@
+---
+- name: Copy boot-notifier.service to systemd directory
+  ansible.builtin.copy:
+    src: systemd/system/boot-notifier.service
+    dest: /etc/systemd/system/boot-notifier.service
+    mode: "0755"
+  become: true
+
+- name: Reload systemd to recognise the new service
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+  become: true
+
+- name: Enable boot-notifier service to start on boot
+  ansible.builtin.systemd_service:
+    state: started
+    name: boot-notifier.service
+  become: true
