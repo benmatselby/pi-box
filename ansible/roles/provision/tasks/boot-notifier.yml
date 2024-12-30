@@ -1,7 +1,7 @@
 ---
 - name: Copy boot-notifier.service to systemd directory
-  ansible.builtin.copy:
-    src: systemd/system/boot-notifier.service
+  ansible.builtin.template:
+    src: systemd/system/boot-notifier.service.j2
     dest: /etc/systemd/system/boot-notifier.service
     mode: "0755"
   become: true

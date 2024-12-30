@@ -8,8 +8,8 @@ Type=simple
 # Needs to be defined manually for now!
 EnvironmentFile=/home/ben/.config/benmatselby/boot-notifier.env
 ExecStart=/bin/bash -c 'echo `hostname` "has booted" | mutt -s "`hostname` has booted" ${PRIMARY_EMAIL}'
-User=ben
-WorkingDirectory=/home/ben
+User={{ provision_user }}
+WorkingDirectory=/home/{{ provision_user }}
 Restart=on-failure
 
 [Install]
